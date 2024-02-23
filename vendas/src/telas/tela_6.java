@@ -3,6 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package telas;
+import static java.lang.Integer.parseInt;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import model.bean.venda_bean;
+import modelo_query.dao.totalvendas;
+
 
 /**
  *
@@ -29,19 +37,22 @@ public class tela_6 extends javax.swing.JFrame {
         DINHEIRO = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         pagamentos = new javax.swing.JLabel();
+        data = new javax.swing.JLabel();
         dinheiro = new javax.swing.JLabel();
         cartao = new javax.swing.JLabel();
         cheque = new javax.swing.JLabel();
         troco = new javax.swing.JLabel();
         total = new javax.swing.JLabel();
         obs = new javax.swing.JLabel();
-        obsField = new javax.swing.JTextField();
-        totalField = new javax.swing.JTextField();
-        dinheiroField = new javax.swing.JTextField();
-        cartaoField = new javax.swing.JTextField();
-        chequeField = new javax.swing.JTextField();
-        trocoField = new javax.swing.JTextField();
+        observacao = new javax.swing.JTextField();
+        soma = new javax.swing.JTextField();
+        c1 = new javax.swing.JTextField();
+        c2 = new javax.swing.JTextField();
+        c3 = new javax.swing.JTextField();
+        c4 = new javax.swing.JTextField();
         finalizar = new javax.swing.JButton();
+        finalizar1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -63,7 +74,9 @@ public class tela_6 extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(103, 103, 103)
                 .addComponent(pagamentos)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(176, 176, 176)
+                .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -71,6 +84,10 @@ public class tela_6 extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(pagamentos)
                 .addContainerGap(47, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         DINHEIRO.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, -1));
@@ -100,21 +117,44 @@ public class tela_6 extends javax.swing.JFrame {
         obs.setText("Obs.:");
         DINHEIRO.add(obs, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 166, -1, -1));
 
-        obsField.addActionListener(new java.awt.event.ActionListener() {
+        observacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                obsFieldActionPerformed(evt);
+                observacaoActionPerformed(evt);
             }
         });
-        DINHEIRO.add(obsField, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 164, 330, 130));
-        DINHEIRO.add(totalField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 150, 30));
-        DINHEIRO.add(dinheiroField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 150, 30));
-        DINHEIRO.add(cartaoField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 150, 30));
-        DINHEIRO.add(chequeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 150, 30));
-        DINHEIRO.add(trocoField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 150, 30));
+        DINHEIRO.add(observacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 164, 330, 130));
+
+        soma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                somaActionPerformed(evt);
+            }
+        });
+        DINHEIRO.add(soma, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 150, 30));
+        DINHEIRO.add(c1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 150, 30));
+        DINHEIRO.add(c2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 150, 30));
+        DINHEIRO.add(c3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 150, 30));
+        DINHEIRO.add(c4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 150, 30));
 
         finalizar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        finalizar.setText("Finalizar Venda");
-        DINHEIRO.add(finalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 190, 40));
+        finalizar.setText("Salvar");
+        finalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finalizarActionPerformed(evt);
+            }
+        });
+        DINHEIRO.add(finalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 190, 40));
+
+        finalizar1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        finalizar1.setText("Somar");
+        finalizar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finalizar1ActionPerformed(evt);
+            }
+        });
+        DINHEIRO.add(finalizar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 190, 40));
+
+        jButton1.setText("jButton1");
+        DINHEIRO.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 190, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,9 +171,54 @@ public class tela_6 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void obsFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obsFieldActionPerformed
+    private void observacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_observacaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_obsFieldActionPerformed
+    }//GEN-LAST:event_observacaoActionPerformed
+
+    private void finalizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizar1ActionPerformed
+        // TODO add your handling code here:
+        int a,b,c,d,e;
+        
+        a = parseInt(c1.getText());
+        b = parseInt(c2.getText());
+        c = parseInt(c3.getText());
+        d = parseInt(c4.getText());
+        e = a+b+c+d;
+        soma.setText ("" +e);
+        
+            Date DataAtual = new Date();
+            
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+            String DataFormatada = formato.format(DataAtual);
+            data.setText(""+DataFormatada);
+            
+            String observacao2 = observacao.getText(); 
+            
+                
+            venda_bean v = new venda_bean();
+            totalvendas dao = new totalvendas();
+            v.setobervacao(observacao2);
+            v.setData(""+DataFormatada);
+
+            
+            v.setvalor(e);
+            dao.create(v);
+            
+            
+        
+        
+    }//GEN-LAST:event_finalizar1ActionPerformed
+
+    private void somaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_somaActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_somaActionPerformed
+
+    private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_finalizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,20 +258,23 @@ public class tela_6 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DINHEIRO;
+    private javax.swing.JTextField c1;
+    private javax.swing.JTextField c2;
+    private javax.swing.JTextField c3;
+    private javax.swing.JTextField c4;
     private javax.swing.JLabel cartao;
-    private javax.swing.JTextField cartaoField;
     private javax.swing.JLabel cheque;
-    private javax.swing.JTextField chequeField;
+    private javax.swing.JLabel data;
     private javax.swing.JLabel dinheiro;
-    private javax.swing.JTextField dinheiroField;
     private javax.swing.JButton finalizar;
+    private javax.swing.JButton finalizar1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel obs;
-    private javax.swing.JTextField obsField;
+    private javax.swing.JTextField observacao;
     private javax.swing.JLabel pagamentos;
+    private javax.swing.JTextField soma;
     private javax.swing.JLabel total;
-    private javax.swing.JTextField totalField;
     private javax.swing.JLabel troco;
-    private javax.swing.JTextField trocoField;
     // End of variables declaration//GEN-END:variables
 }

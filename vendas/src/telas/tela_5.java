@@ -142,8 +142,8 @@ public class tela_5 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
        totalvendas dao = new  totalvendas ();
-       boolean mensagem = dao.checkdata(c1.getText());
-       if(dao.checkdata(c1.getText())){
+       int mensagem = dao.checkdata(c1.getText());
+       if(mensagem ==1){
           c2.setText("="+mensagem);
        }else{
            //JOptionPane.showMessageDialog(null, "SEM REGISTRO");
