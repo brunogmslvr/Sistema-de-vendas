@@ -20,14 +20,14 @@ import javax.swing.JOptionPane;
 
 public class funcionario {
     
-   
+   private int id;
     private String nome;
     private String email;
     private String login;
     private String senha;
     
     
-    private int id;
+
 
    public int getId(){
    return id;

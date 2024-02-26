@@ -7,9 +7,9 @@ package telas;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import model.bean.Produto;
+//import model.bean.Produto;
 import model.bean.funcionario;
-import modelo_query.dao.ProdutoDAO;
+//import modelo_query.dao.ProdutoDAO;
 import modelo_query.dao.funcionarioDAO;
 
 /**
@@ -23,15 +23,15 @@ public class Tela_12 extends javax.swing.JFrame {
      */
     public Tela_12() {
         initComponents();
-        DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
-        jTProdutos.setRowSorter(new TableRowSorter(modelo));
+        DefaultTableModel modelo = (DefaultTableModel) jTfuncionarios.getModel();
+        jTfuncionarios.setRowSorter(new TableRowSorter(modelo));
 
         readJTable();
     }
 
      public void readJTable() {
         
-        DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) jTfuncionarios.getModel();
         modelo.setNumRows(0);
         funcionarioDAO pdao = new funcionarioDAO();
 
@@ -40,6 +40,7 @@ public class Tela_12 extends javax.swing.JFrame {
             modelo.addRow(new Object[]{
                 p.getId(),
                 p.getnome(),
+                p.getemail(),
                 p.getlogin(),
                 p.getsenha()
                // p.getDescricao(),
@@ -80,7 +81,7 @@ public class Tela_12 extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTProdutos = new javax.swing.JTable();
+        jTfuncionarios = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -216,7 +217,7 @@ public class Tela_12 extends javax.swing.JFrame {
 
         jLabel7.setText("Lista De Produtos");
 
-        jTProdutos.setModel(new javax.swing.table.DefaultTableModel(
+        jTfuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -224,17 +225,17 @@ public class Tela_12 extends javax.swing.JFrame {
                 "id", "nome", "email", "login", "senha"
             }
         ));
-        jTProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTfuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTProdutosMouseClicked(evt);
+                jTfuncionariosMouseClicked(evt);
             }
         });
-        jTProdutos.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTfuncionarios.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTProdutosKeyReleased(evt);
+                jTfuncionariosKeyReleased(evt);
             }
         });
-        jScrollPane2.setViewportView(jTProdutos);
+        jScrollPane2.setViewportView(jTfuncionarios);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -308,12 +309,12 @@ public class Tela_12 extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-         if (jTProdutos.getSelectedRow() != -1) {
+         if (jTfuncionarios.getSelectedRow() != -1) {
 
             funcionario p = new funcionario();
             funcionarioDAO dao = new funcionarioDAO();
 
-            p.setId((int) jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 0));
+            p.setId((int) jTfuncionarios.getValueAt(jTfuncionarios.getSelectedRow(), 0));
             
             dao.delete(p);
 
@@ -331,7 +332,7 @@ public class Tela_12 extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-             if (jTProdutos.getSelectedRow() != -1) {
+             if (jTfuncionarios.getSelectedRow() != -1) {
 
             funcionario p = new funcionario();
             funcionarioDAO dao = new funcionarioDAO();
@@ -340,7 +341,7 @@ public class Tela_12 extends javax.swing.JFrame {
             p.setemail(txtemail.getText());
             p.setlogin(txtlogin.getText());
             p.setsenha(txtsenha.getText());
-            p.setId((int) jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 0));
+            p.setId((int) jTfuncionarios.getValueAt(jTfuncionarios.getSelectedRow(), 0));
             
             dao.update(p);
 
@@ -354,32 +355,32 @@ public class Tela_12 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTProdutosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTProdutosKeyReleased
+    private void jTfuncionariosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTfuncionariosKeyReleased
         // TODO add your handling code here:
         
-          if (jTProdutos.getSelectedRow() != -1) {
+          if (jTfuncionarios.getSelectedRow() != -1) {
 
-            txtnome.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 1).toString());
-            txtemail.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 2).toString());
-            txtlogin.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 3).toString());
-            txtsenha.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 4).toString());
+            txtnome.setText(jTfuncionarios.getValueAt(jTfuncionarios.getSelectedRow(), 1).toString());
+            txtemail.setText(jTfuncionarios.getValueAt(jTfuncionarios.getSelectedRow(), 2).toString());
+            txtlogin.setText(jTfuncionarios.getValueAt(jTfuncionarios.getSelectedRow(), 3).toString());
+            txtsenha.setText(jTfuncionarios.getValueAt(jTfuncionarios.getSelectedRow(), 4).toString());
 
         }
           
-    }//GEN-LAST:event_jTProdutosKeyReleased
+    }//GEN-LAST:event_jTfuncionariosKeyReleased
 
-    private void jTProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTProdutosMouseClicked
+    private void jTfuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTfuncionariosMouseClicked
         // TODO add your handling code here:
-         if (jTProdutos.getSelectedRow() != -1) {
+         if (jTfuncionarios.getSelectedRow() != -1) {
 
-            txtnome.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 1).toString());
-            txtemail.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 2).toString());
-            txtlogin.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 3).toString());
-            txtsenha.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 4).toString());
+            txtnome.setText(jTfuncionarios.getValueAt(jTfuncionarios.getSelectedRow(), 1).toString());
+            txtemail.setText(jTfuncionarios.getValueAt(jTfuncionarios.getSelectedRow(), 2).toString());
+            txtlogin.setText(jTfuncionarios.getValueAt(jTfuncionarios.getSelectedRow(), 3).toString());
+            txtsenha.setText(jTfuncionarios.getValueAt(jTfuncionarios.getSelectedRow(), 4).toString());
             
 
         }
-    }//GEN-LAST:event_jTProdutosMouseClicked
+    }//GEN-LAST:event_jTfuncionariosMouseClicked
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
         // TODO add your handling code here:
@@ -443,7 +444,7 @@ public class Tela_12 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTProdutos;
+    private javax.swing.JTable jTfuncionarios;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtlogin;
     private javax.swing.JTextField txtnome;

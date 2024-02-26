@@ -33,8 +33,9 @@ public class funcionarioDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO `sistema_vendas`.`funcionarios` (nome,senha,login) VALUES (?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO `sistema_vendas`.`funcionarios` (nome,email,senha,login) VALUES (?,?,?,?)");
             stmt.setString(1, f.getnome());
+            stmt.setString(1, f.getemail());
             stmt.setString(2, f.getsenha());
             stmt.setString(3, f.getlogin());
             //stmt.setInt(2, p.getQtd());
@@ -70,6 +71,7 @@ public class funcionarioDAO {
 
                 f.setId(rs.getInt("idfuncionarios"));
                 f.setnome(rs.getString("nome"));
+                f.setemail(rs.getString("email"));
                 f.setlogin(rs.getString("login"));
                 f.setsenha(rs.getString("senha"));
                 /*produto.setDescricao(rs.getString("descricao"));
