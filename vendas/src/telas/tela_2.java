@@ -31,9 +31,12 @@ public class tela_2 extends javax.swing.JFrame {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         cliente = new javax.swing.JMenu();
         funcionario = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         produto = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -51,6 +54,8 @@ public class tela_2 extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         jMenuItem3.setText("jMenuItem3");
+
+        jMenuItem8.setText("jMenuItem8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("BAR NHA CHICA");
@@ -74,16 +79,23 @@ public class tela_2 extends javax.swing.JFrame {
         funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/FUNCIONARIO.png"))); // NOI18N
         funcionario.setText("Funcionário");
         funcionario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        funcionario.addMouseListener(new java.awt.event.MouseAdapter() {
+
+        jMenuItem9.setText("cadastro");
+        jMenuItem9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                funcionarioMousePressed(evt);
+                jMenuItem9MousePressed(evt);
             }
         });
-        funcionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                funcionarioActionPerformed(evt);
+        funcionario.add(jMenuItem9);
+
+        jMenuItem10.setText("controle");
+        jMenuItem10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem10MousePressed(evt);
             }
         });
+        funcionario.add(jMenuItem10);
+
         jMenuBar1.add(funcionario);
 
         produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produto.png"))); // NOI18N
@@ -190,26 +202,12 @@ public class tela_2 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void funcionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionarioActionPerformed
-        // TODO add your handling code here:
-        
-       
-        
-    }//GEN-LAST:event_funcionarioActionPerformed
-
     private void sairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sairMousePressed
         // TODO add your handling code here:
          tela_1 form2 = new tela_1();          
         form2.setVisible(true); 
         dispose();
     }//GEN-LAST:event_sairMousePressed
-
-    private void funcionarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_funcionarioMousePressed
-        // TODO add your handling code here:
-        
-         tela_8 form2 = new tela_8(); 
-        form2.setVisible(true); 
-    }//GEN-LAST:event_funcionarioMousePressed
 
     private void fornecedorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fornecedorMousePressed
         // TODO add your handling code here:
@@ -261,6 +259,18 @@ public class tela_2 extends javax.swing.JFrame {
         form2.setVisible(true); 
     }//GEN-LAST:event_clienteMousePressed
 
+    private void jMenuItem9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem9MousePressed
+        // TODO add your handling code here:
+        tela_8 form2 = new tela_8(); 
+        form2.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9MousePressed
+
+    private void jMenuItem10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem10MousePressed
+        // TODO add your handling code here:
+        Tela_12 form2 = new Tela_12(); 
+        form2.setVisible(true);
+    }//GEN-LAST:event_jMenuItem10MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -308,12 +318,15 @@ public class tela_2 extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenu produto;
     private javax.swing.JMenu sair;
     private javax.swing.JMenu vendas;

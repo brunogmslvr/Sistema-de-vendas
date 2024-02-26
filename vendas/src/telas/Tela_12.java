@@ -8,7 +8,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import model.bean.Produto;
+import model.bean.funcionario;
 import modelo_query.dao.ProdutoDAO;
+import modelo_query.dao.funcionarioDAO;
 
 /**
  *
@@ -31,38 +33,24 @@ public class Tela_12 extends javax.swing.JFrame {
         
         DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
         modelo.setNumRows(0);
-        ProdutoDAO pdao = new ProdutoDAO();
+        funcionarioDAO pdao = new funcionarioDAO();
 
-        for (Produto p : pdao.read()) {
+        for (funcionario p : pdao.read()) {
 
             modelo.addRow(new Object[]{
                 p.getId(),
-                p.getDescricao(),
-                p.getQtd(),
-                p.getPreco()
+                p.getnome(),
+                p.getlogin(),
+                p.getsenha()
+               // p.getDescricao(),
+                //p.getQtd(),
+                //p.getPreco()
             });
 
         }
 
     }
-     public void readJTableForDesc(String desc) {
-        
-        DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
-        modelo.setNumRows(0);
-        ProdutoDAO pdao = new ProdutoDAO();
-
-        for (Produto p : pdao.readForDesc(desc)) {
-
-            modelo.addRow(new Object[]{
-                p.getId(),
-                p.getDescricao(),
-                p.getQtd(),
-                p.getPreco()
-            });
-
-        }
-
-    }
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -224,7 +212,7 @@ public class Tela_12 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo", "Descriçao", "Preço", "Qtd.estoque", "Fornecedor"
+                "id", "nome", "email", "login", "senha"
             }
         ));
         jTProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -305,7 +293,7 @@ public class Tela_12 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        readJTableForDesc(txtDesc.getText());
+        //readJTableForDesc(txtDesc.getText());
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

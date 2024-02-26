@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+//import model.bean.Produto;
 import model.bean.funcionario;
 
 /**
@@ -48,6 +49,43 @@ public class funcionarioDAO {
 
     }
 
+    public List<funcionario> read() {
+
+        Connection con = Banco.getConnection();
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<funcionario> funcionarios = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM funcionarios");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                funcionario f = new funcionario();
+
+                f.setId(rs.getInt("idfuncionarios"));
+                f.setnome(rs.getString("nome"));
+                f.setlogin(rs.getString("login"));
+                f.setsenha(rs.getString("senha"));
+                /*produto.setDescricao(rs.getString("descricao"));
+                produto.setQtd(rs.getInt("qtd"));
+                produto.setPreco(rs.getDouble("preco"));
+                produtos.add(produto); */
+                funcionarios.add(f);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            Banco.closeConnection(con, stmt, rs);
+        }
+
+        return funcionarios;
+
+    }
     
     
     
