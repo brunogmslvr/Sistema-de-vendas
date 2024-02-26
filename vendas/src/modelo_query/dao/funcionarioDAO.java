@@ -16,7 +16,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 //import model.bean.Produto;
+//import model.bean.Produto;
 import model.bean.funcionario;
+
 
 /**
  *
@@ -87,10 +89,57 @@ public class funcionarioDAO {
 
     }
     
+     public void delete(funcionario p) {
+
+        Connection con = Banco.getConnection();
+        
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("DELETE FROM funcionarios WHERE idFuncionarios = ?");
+            stmt.setInt(1, p.getId());
+
+            stmt.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir: " + ex);
+        } finally {
+            Banco.closeConnection(con, stmt);
+        }
+
+    }
+   
+     public void update(funcionario p) {
+
+        Connection con = Banco.getConnection();
+        
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("UPDATE funcionarios SET descricao = ? ,nome = ?,email = ?,login = ?,senha WHERE id = ?");
+            stmt.setString(1, p.getnome());
+            stmt.setString(2, p.getemail());
+            stmt.setString(3, p.getlogin());
+            stmt.setString(3, p.getsenha());
+            stmt.setInt(4, p.getId());
+
+            stmt.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+        } finally {
+            Banco.closeConnection(con, stmt);
+        }
+
+    }
     
+     
     
     
     
     
 
 }
+

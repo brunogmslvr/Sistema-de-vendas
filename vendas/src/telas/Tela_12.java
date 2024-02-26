@@ -66,15 +66,17 @@ public class Tela_12 extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtDesc = new javax.swing.JTextField();
+        txtnome = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtPreco = new javax.swing.JTextField();
+        txtemail = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtQtd = new javax.swing.JTextField();
+        txtlogin = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        Senha = new javax.swing.JLabel();
+        txtsenha = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -108,11 +110,11 @@ public class Tela_12 extends javax.swing.JFrame {
 
         jLabel2.setText("Consulta De Produtos");
 
-        jLabel3.setText("Descriçao:");
+        jLabel3.setText("nome");
 
-        txtDesc.addActionListener(new java.awt.event.ActionListener() {
+        txtnome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescActionPerformed(evt);
+                txtnomeActionPerformed(evt);
             }
         });
 
@@ -123,9 +125,9 @@ public class Tela_12 extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Preço:");
+        jLabel4.setText("email");
 
-        jLabel5.setText("Qtd:");
+        jLabel5.setText("Login");
 
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setText("Excluir");
@@ -150,6 +152,8 @@ public class Tela_12 extends javax.swing.JFrame {
             }
         });
 
+        Senha.setText("Senha");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -160,16 +164,18 @@ public class Tela_12 extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(32, 32, 32)
+                            .addComponent(jLabel4)
+                            .addComponent(Senha))
+                        .addGap(31, 31, 31)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(58, 58, 58)
+                                .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
                                 .addComponent(jLabel5)
                                 .addGap(52, 52, 52)
-                                .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(60, 60, 60)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton3)
@@ -180,7 +186,7 @@ public class Tela_12 extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addGap(26, 26, 26)
                         .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,17 +198,20 @@ public class Tela_12 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtlogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(jButton4))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(Senha)
+                    .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jLabel7.setText("Lista De Produtos");
@@ -286,9 +295,9 @@ public class Tela_12 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescActionPerformed
+    private void txtnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescActionPerformed
+    }//GEN-LAST:event_txtnomeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -301,16 +310,17 @@ public class Tela_12 extends javax.swing.JFrame {
         // TODO add your handling code here:
          if (jTProdutos.getSelectedRow() != -1) {
 
-            Produto p = new Produto();
-            ProdutoDAO dao = new ProdutoDAO();
+            funcionario p = new funcionario();
+            funcionarioDAO dao = new funcionarioDAO();
 
             p.setId((int) jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 0));
             
             dao.delete(p);
 
-            txtDesc.setText("");
-            txtQtd.setText("");
-            txtPreco.setText("");
+            txtnome.setText("");
+            txtemail.setText("");
+            txtlogin.setText("");
+            txtsenha.setText("");
 
             readJTable();
 
@@ -323,18 +333,21 @@ public class Tela_12 extends javax.swing.JFrame {
         // TODO add your handling code here:
              if (jTProdutos.getSelectedRow() != -1) {
 
-            Produto p = new Produto();
-            ProdutoDAO dao = new ProdutoDAO();
+            funcionario p = new funcionario();
+            funcionarioDAO dao = new funcionarioDAO();
 
-            p.setDescricao(txtDesc.getText());
-            p.setQtd(Integer.parseInt(txtQtd.getText()));
-            p.setPreco(Double.parseDouble(txtPreco.getText()));
+            p.setnome(txtnome.getText());
+            p.setemail(txtemail.getText());
+            p.setlogin(txtlogin.getText());
+            p.setsenha(txtsenha.getText());
             p.setId((int) jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 0));
+            
             dao.update(p);
 
-            txtDesc.setText("");
-            txtQtd.setText("");
-            txtPreco.setText("");
+           txtnome.setText("");
+           txtemail.setText("");
+           txtlogin.setText("");
+           txtsenha.setText("");
 
             readJTable();
 
@@ -346,9 +359,10 @@ public class Tela_12 extends javax.swing.JFrame {
         
           if (jTProdutos.getSelectedRow() != -1) {
 
-            txtDesc.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 1).toString());
-            txtQtd.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 2).toString());
-            txtPreco.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 3).toString());
+            txtnome.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 1).toString());
+            txtemail.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 2).toString());
+            txtlogin.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 3).toString());
+            txtsenha.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 4).toString());
 
         }
           
@@ -358,9 +372,11 @@ public class Tela_12 extends javax.swing.JFrame {
         // TODO add your handling code here:
          if (jTProdutos.getSelectedRow() != -1) {
 
-            txtDesc.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 1).toString());
-            txtQtd.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 2).toString());
-            txtPreco.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 3).toString());
+            txtnome.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 1).toString());
+            txtemail.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 2).toString());
+            txtlogin.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 3).toString());
+            txtsenha.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 4).toString());
+            
 
         }
     }//GEN-LAST:event_jTProdutosMouseClicked
@@ -411,6 +427,7 @@ public class Tela_12 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Senha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -427,8 +444,9 @@ public class Tela_12 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTProdutos;
-    private javax.swing.JTextField txtDesc;
-    private javax.swing.JTextField txtPreco;
-    private javax.swing.JTextField txtQtd;
+    private javax.swing.JTextField txtemail;
+    private javax.swing.JTextField txtlogin;
+    private javax.swing.JTextField txtnome;
+    private javax.swing.JTextField txtsenha;
     // End of variables declaration//GEN-END:variables
 }
